@@ -1,0 +1,30 @@
+{
+  "name": "petconnector-backend",
+  "version": "1.0.0",
+  "description": "Server and backend management for pet adoption app.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "deploy-postbuild": "cd client && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Casey Conlin",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "config": "^3.3.9",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.13.8",
+    "path": "^0.12.7",
+    "stripe": "^11.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
