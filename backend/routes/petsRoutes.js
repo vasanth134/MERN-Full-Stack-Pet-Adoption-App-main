@@ -37,15 +37,15 @@ router.delete("/:id", async (req, res) => {
 });
 
 // GET /pets?species=dog
-router.get("/", async (req, res) => {
-  try {
-    const species = req.query.species;
-    const pets = await Pet.find(species ? { species } : {}); // Filters by species
-    res.json(pets);
-  } catch (error) {
-    console.error("Error fetching pets:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const species = req.query.species;
+//     const pets = await Pet.find(species ? { species } : {}); // Filters by species
+//     res.json(pets);
+//   } catch (error) {
+//     console.error("Error fetching pets:", error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
 
 module.exports = router;
