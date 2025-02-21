@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const authMiddleware = require("../middleware/auth"); // Add middleware for token verification
 
 // User Registration
 router.post("/register", async (req, res) => {
@@ -37,10 +38,16 @@ router.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
 
+    res.cookie("token", token, { httpOnly: true });
     res.json({ token, user });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
+});
+
+// ✅ Add the missing "isUserAuth" route
+router.get("/isUserAuth", authMiddleware, (req, res) => {
+  res.json({ message: "User is authenticated", user: req.user });
 });
 
 // Get User Profile

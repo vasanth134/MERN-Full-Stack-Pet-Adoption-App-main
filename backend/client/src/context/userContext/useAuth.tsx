@@ -16,32 +16,34 @@ import {
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
-// Export the provider as we need to wrap the entire app with it
-export function AuthProvider({
-  children,
-}: {
-  children: ReactNode;
-}): JSX.Element {
-  const [user, setUser] = useState<User>();
-  const [message, setMessage] = useState<AuthMessage>();
-  const [error, setError] = useState<any>();
+export function AuthProvider({ children }: { children: ReactNode }): JSX.Element {
+  const [user, setUser] = useState<User | undefined>();
+  const [message, setMessage] = useState<AuthMessage | undefined>();
+  const [error, setError] = useState<string | undefined>(); // ✅ Ensure error is always a string
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingInitial, setLoadingInitial] = useState<boolean>(true);
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Clear error on route change
   useEffect(() => {
-    if (error) setError(null);
+    if (error) setError(undefined);
   }, [location.pathname]);
 
+  // Fetch user on initial load
   useEffect(() => {
     getUser()
       .then((data) => {
         setUser(data.user);
       })
-      .catch((_error) => {})
+      .catch((_error) => {}) // No need to set error for this
       .finally(() => setLoadingInitial(false));
   }, []);
+
+  // ✅ Fixed error handling
+  const handleError = (err: any) => {
+    return err.response?.data?.message || err.message || "An error occurred!";
+  };
 
   const register = (user: RegisterUser) => {
     setLoading(true);
@@ -55,7 +57,7 @@ export function AuthProvider({
           navigate("/users/login");
         }, 2000);
       })
-      .catch((err) => setError(err))
+      .catch((err) => setError(handleError(err)))
       .finally(() => setLoading(false));
   };
 
@@ -71,7 +73,7 @@ export function AuthProvider({
           navigate("/users/my-account");
         }, 2000);
       })
-      .catch((err) => setError(err))
+      .catch((err) => setError(handleError(err)))
       .finally(() => setLoading(false));
   };
 

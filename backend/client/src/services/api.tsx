@@ -1,74 +1,111 @@
+import { get } from "http";
 import { json } from "react-router-dom";
 
 const API_URL = "http://localhost:5000"; // Backend port
 
+// Fetch all pets
 export const fetchPets = async () => {
-  const query = window.location.search;
-  const res = await fetch(`${API_URL}/pets${query}`); // Corrected URL
-  if (!res.ok) {
-    throw json({ message: "No pets available." }, { status: 500 });
+  try {
+    const query = window.location.search;
+    const res = await fetch(`${API_URL}/pets${query}`);
+
+    if (!res.ok) {
+      throw new Error("No pets available.");
+    }
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching pets:", error);
+    throw error;
   }
-  return res.json();
 };
 
+// Fetch a single pet by ID
 export const fetchPet = async ({ params }: { params: any }) => {
-  const id = params.id;
-  const res = await fetch(`${API_URL}/pets/${id}`); // Fixed URL
-  if (!res.ok) {
-    throw json({ message: "Pet not found." }, { status: 404 });
+  try {
+    const id = params.id;
+    const res = await fetch(`${API_URL}/pets/${id}`);
+
+    if (!res.ok) {
+      throw new Error("Pet not found.");
+    }
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching pet:", error);
+    throw error;
   }
-  return res.json();
 };
 
-//Authorize users.
+// Register a new user
 export const registerUser = async (user: RegisterUser) => {
-  const res = await fetch("/users/register", {
-    method: "POST",
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify(user),
-  });
-  if (res.status !== 200) {
+  try {
+    const res = await fetch(`${API_URL}/users/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
+
     const data = await res.json();
-    return Promise.reject(data.message);
-  } else {
-    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Registration failed.");
+    
     return data;
+  } catch (error) {
+    console.error("Error registering user:", error);
+    throw error;
   }
 };
 
+// User login
 export const loginUser = async (user: LoginUser) => {
-  const res = await fetch("/users/login", {
-    method: "POST",
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify(user),
-  });
-  if (res.status !== 200) {
+  try {
+    const res = await fetch(`${API_URL}/users/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
+
     const data = await res.json();
-    return Promise.reject(data.message);
-  } else {
-    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Login failed.");
+    
     return data;
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    throw error;
   }
 };
 
+// Get authenticated user
 export const getUser = async () => {
-  const res = await fetch("/users/isUserAuth", {
-    credentials: "include",
-    headers: { "Content-type": "application/json" },
-  });
-  if (res.status !== 200) {
+  try {
+    const res = await fetch(`${API_URL}/users/isUserAuth`, {
+      method: "GET",
+      credentials: "include", // Ensure cookies/sessions are sent
+      headers: { "Content-Type": "application/json" },
+    });
+
     const data = await res.json();
-    return Promise.reject(data.message);
+    if (!res.ok) throw new Error(data.message || "User authentication failed.");
+    
+    return data;
+  } catch (error) {
+    console.log("Error fetching user:", error);
+    throw error;
   }
-  const data = await res.json();
-  return data;
 };
 
+// User logout
 export const logoutUser = async () => {
-  const res = await fetch("/users/logout", {
-    credentials: "include",
-    headers: { "Content-type": "application/json" },
-  });
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(`${API_URL}/users/logout`, {
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Logout failed.");
+    
+    return data;
+  } catch (error) {
+    console.error("Error logging out user:", error);
+    throw error;
+  }
 };

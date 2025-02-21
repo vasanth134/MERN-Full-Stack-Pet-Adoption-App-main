@@ -11,7 +11,7 @@
   "author": "Casey Conlin",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
     "config": "^3.3.9",
