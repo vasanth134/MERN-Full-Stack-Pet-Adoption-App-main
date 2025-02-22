@@ -15,7 +15,7 @@ export const Homepage = () => {
         shop for and adopt your next pet!
       </p>
 
-      <Carousel />
+      {/* <Carousel /> */}
 
       <h2 className=" mt-5 mb-3 w-10/12 text-2xl font-bold mx-auto text-center">
         About the App
@@ -78,8 +78,8 @@ export const Homepage = () => {
 
       <p className=" w-10/12 my-5 text-lg font-bold mx-auto text-center">
         If you have any questions contact{" "}
-        <a className="text-blue-800" href="mailto:casey.conlin@gmail.com">
-          Casey Conlin
+        <a className="text-blue-800" href="mailto:">
+          Sathya
         </a>
       </p>
     </div>

@@ -15,7 +15,7 @@ export const PetCard = (pet: PetCard) => {
       key={pet._id}
       className="max-w-sm md:w-2/5 bg-white border border-gray-200 rounded-lg shadow"
     >
-      <Link to={`/pet/${pet._id}`}>
+      <Link to={`/pets/${pet._id}`}>
         <img
           className="rounded-t-lg"
           src={`/uploads/${pet.image}`}
@@ -24,7 +24,7 @@ export const PetCard = (pet: PetCard) => {
       </Link>
       <div className="p-3">
         <div className="flex items-center justify-between mb-2">
-          <Link to={`/pet/${pet._id}`}>
+          <Link to={`/pets/${pet._id}`}>
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
               {pet.name}
             </h5>
@@ -125,7 +125,7 @@ export const PetCard = (pet: PetCard) => {
             </Link>
           </button>
           <Link
-            to={`/pet/${pet._id}`}
+            to={`/pets/${pet._id}`}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700 rounded-lg hover:bg-slate-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             {"Meet " + pet.name}

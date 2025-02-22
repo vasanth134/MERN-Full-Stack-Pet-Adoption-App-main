@@ -7,7 +7,7 @@ export const CarouselItem = (pet: CarouselPet) => {
       className=" w-full sm:11/12 md:w-11/12 md:mx-2 lg:mx-3 xl:mx-3.5 shrink-0 bg-white border border-gray-200 rounded-lg shadow"
     >
       <Link
-        to={`/pet/${pet._id}`}
+        to={`/pets/${pet._id}`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <img
@@ -19,7 +19,7 @@ export const CarouselItem = (pet: CarouselPet) => {
       <div className="px-2 py-2 mb-3">
         <div className="flexitems-center mb-1 ml-2">
           <Link
-            to={`/pet/${pet._id}`}
+            to={`/pets/${pet._id}`}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <h5 className=" text-xl mb-2 font-bold tracking-tight text-gray-900">

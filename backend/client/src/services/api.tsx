@@ -23,7 +23,7 @@ export const fetchPets = async () => {
 export const fetchPet = async ({ params }: { params: any }) => {
   try {
     const id = params.id;
-    const res = await fetch(`${API_URL}/pets/${id}`);
+    const res = await fetch(`${API_URL}/pets/${params.id}`);
 
     if (!res.ok) {
       throw new Error("Pet not found.");

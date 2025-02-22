@@ -15,7 +15,7 @@ export const About = () => {
                 <div className="flex flex-col sm:flex-row gap-5 bg-white border border-gray-200 rounded-lg shadow">
                   <div
                     className="w-full h-80 sm:h-auto sm:w-2/5 sm:shrink-0 lg:h-80 bg-cover bg-center"
-                    style={{ backgroundImage: "url(/uploads/about.jpg)" }}
+                    style={{ backgroundImage: "url(/uploads/about.jpeg)" }}
                   ></div>
                   <div className="p-3">
                     <h2 className="mb-2 text-2xl font-bold mx-auto">
@@ -47,7 +47,7 @@ export const About = () => {
                         </svg>
                       </a>
                       <a
-                        href="#"
+                        href="https://www.linkedin.com/in/sathya-prakash-022415292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_appe"
                         target="_blank"
                         title="Oxford Pet Dataset"
                         rel="noreferrer"

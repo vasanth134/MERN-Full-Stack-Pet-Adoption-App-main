@@ -36,6 +36,22 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// GET pet by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const pet = await Pet.findById(req.params.id);
+    if (!pet) {
+      return res.status(404).json({ message: "Pet not found" });
+    }
+    res.json(pet);
+  } catch (error) {
+    console.error("Error fetching pet:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+module.exports = router;
+
 // GET /pets?species=dog
 // router.get("/", async (req, res) => {
 //   try {

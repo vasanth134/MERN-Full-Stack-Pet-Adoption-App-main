@@ -24,7 +24,7 @@ export const router = createBrowserRouter(
       <Route element={<RootLayout />}>
         <Route path="/" element={<Homepage />} loader={petsLoader} />
         <Route path="/pets" element={<PetSearchPage />} loader={petsLoader} />
-        <Route path="/pet/:id" element={<PetPage />} loader={petLoader} />
+        <Route path="/pets/:id" element={<PetPage />} loader={petLoader} />
         <Route path="/users/register" element={<RegisterForm />} />
         <Route path="/users/login" element={<LoginFrom />} />
         <Route path="/users/my-account" element={<MyAccount />} />
