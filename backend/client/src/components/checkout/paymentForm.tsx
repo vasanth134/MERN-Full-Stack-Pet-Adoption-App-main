@@ -83,7 +83,7 @@ export const PaymentForm = () => {
                 <div className="w-full p-3 border-b border-gray-200">
                   <div className="font-bold text-slate-800 my-3 text-xl">
                     Basket Total:
-                    <span className="font-semibold "> ${total}</span>
+                    <span className="font-semibold "> ₹{total}</span>
                   </div>
                   <div className="my-5">
                     <label

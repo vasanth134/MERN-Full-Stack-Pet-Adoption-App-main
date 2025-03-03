@@ -92,7 +92,7 @@ export const PetCard = (pet: PetCard) => {
         </div>
         <div className="flex items-center justify-between mb-1">
           <span className="text-md text-gray-900">
-            <span className="font-bold">Adoption Fee: </span>${pet.fee}
+            <span className="font-bold">Adoption Fee: </span>₹{pet.fee}
           </span>
         </div>
         <div className="flex items-center justify-between mb-3">

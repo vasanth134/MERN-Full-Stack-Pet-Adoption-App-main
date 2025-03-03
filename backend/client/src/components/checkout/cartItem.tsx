@@ -29,7 +29,7 @@ export const CartItem = (pet: CartPet) => {
               </p>
             </div>
             <div className="text-right">
-              <p className="text-lg font-medium">${pet.fee}</p>
+              <p className="text-lg font-medium">₹{pet.fee}</p>
               <p className="text-sm">
                 {pet.gender.charAt(0).toUpperCase() + pet.gender.slice(1)}
               </p>

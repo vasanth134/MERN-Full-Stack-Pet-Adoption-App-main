@@ -11,7 +11,7 @@ export const CheckoutCard = () => {
         <div className="mb-4">
           <p className="font-bold my-1 text-xl">
             Basket Total:
-            <span className="font-semibold "> ${total}</span>
+            <span className="font-semibold "> ₹{total}</span>
           </p>
           <p className="text-md ">Includes adoption fee for each pet.</p>
         </div>
