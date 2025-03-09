@@ -8,10 +8,10 @@ export const Homepage = () => {
         Let's find you a pet!
       </h1>
       <p className="my-3 w-10/12 mx-auto text-center">
-        Use petConnect to find the newest member of your family.
+        Use Find your perfect companion to find the newest member of your family.
       </p>
       <p className="my-3 w-9/12 mx-auto text-center">
-        petConnect is a demo fullstack MERN application that allows you to to
+      Find your perfect companion is a demo fullstack MERN application that allows you to to
         shop for and adopt your next pet!
       </p>
 

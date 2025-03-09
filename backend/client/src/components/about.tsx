@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <>
       <h1 className="font-medium text-center leading-tight text-5xl my-5 text-slate-700">
-        About the petConnect App
+        About the Find your perfect companion
       </h1>
 
       <section className="">
@@ -76,7 +76,7 @@ export const About = () => {
               </h2>
 
               <p className="my-3  mx-auto text-center">
-                petConnect is a demo fullstack MERN application that allows you
+              Find your perfect companion  is a demo fullstack MERN application that allows you
                 to to shop for and adopt your next pet. You can access the{" "}
                 <a
                   className="text-slate-700 font-bold"
